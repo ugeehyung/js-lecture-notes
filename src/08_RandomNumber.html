@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="./css08.css">
+        <title>1~45 숫자 7개 랜덤 뽑기</title>
+        <style>
+
+            input[type=button]{
+                width: 50px;
+                padding: 5px;  
+                background-color: rgb(27, 52, 85);
+                color: white;
+                border: 1px solid silver;
+            }
+            input[type=text]{ 
+                 
+                width: 1000px;
+                padding: 5px;
+                border: 1px solid rgba(255, 255, 255, 0);
+                background-color: rgba(250, 250, 250, 0);
+            }
+             
+        </style>
+        <script>
+            function pickNow(){
+                
+                var numbers = [];
+                var pickNumbers = 7;
+              
+                for(insertCur = 0; insertCur < pickNumbers ; insertCur++){
+                    numbers[insertCur] = Math.floor(Math.random() * 45) + 1;
+                    for(searchCur = 0; searchCur < insertCur; searchCur ++){
+                        if(numbers[insertCur] == numbers[searchCur]){
+                            insertCur--; 
+                            break; 
+                        }
+                    }
+                }
+                 
+                var result = "        "; 
+                for(i = 0; i < pickNumbers; i ++){
+                    if(i > 0){
+                        result += "               ";
+                    }
+                    result += numbers[i];
+                }
+                random45.result.value = result; 
+            }
+        </script>
+    </head>
+    <body>
+        <form name="random45">
+            <input type="button" value="PICK!" onClick="pickNow()"/>
+            <br /><br>
+            [ 랜덤뽑기 결과 ]
+
+                <div class="img">
+                    <div class="content">
+                        <h1> <input type="text" name="result" readonly /><br> </h1>
+                    </div>
+
+            </div>
+        </form>
+    </body>
+</html>
+

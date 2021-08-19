@@ -1,0 +1,10 @@
+.img{
+    background-image: url(../assets/ball.png),url(../assets/ball.png),url(../assets/ball.png)
+    ,url(../assets/ball.png),url(../assets/ball.png),url(../assets/ball.png),url(../assets/ball.png);     
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position:10px 104px, 80px 104px, 145px 104px, 214px 104px, 282px 104px, 350px 104px, 417px 104px;                                         
+    background-size: 50px;
+    width: 1000px;
+    height: 60px;
+}

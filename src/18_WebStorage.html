@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>브라우저에 데이터 보관</title>
+</head>
+<body>
+
+<h3># Cookie</h3>
+<ul>
+    <li>쿠키의 본래 용도는 브라우저에 저장만 하고 서버로 데이터를 전송할 때 포함시키는 용도</li>
+    <li>하지만 자바스크립트로도 제어할 수 있다</li>
+    ※ 크롬에서는 도메인이나 http 통신이 없는 경우 쿠키 저장을 하지 않는다.
+    즉, 로컬 파일로 열린 코드(file://)에서는 쿠키 저장이 안됨
+</ul>
+
+<h3># localStorage</h3>
+<ul>
+    <li>브라우저에 데이터를 보관하는 용도</li>
+    <li>서버로 일일이 전송할 필요없는 정보를 저장하는 것이 좋다</li>
+    <li>sessionStorage는 브라우저가 닫히면 데이터가 사라진다는 점이 다르다</li>
+</ul>
+
+<script>
+    // # cookie : 만료일/범위 설정 가능, 요청 시 http 요청 마다 포함되는 데이터
+    document.cookie = "user_name=abc"  
+    console.log(document.cookie)
+
+    // # localStorage : 지우기 전까지 유지되는 데이터
+    localStorage.setItem("name", "홍길동") //add
+    localStorage.setItem("name", "이길동") //modify
+
+    localStorage.setItem("cookie", "chocolate") //add
+    localStorage.setItem("score", "900") //add
+
+    localStorage.removeItem("score") //remove
+
+    var name = localStorage.getItem("name") //read (키를 넣으면 value가 나옴)
+    console.log(name)
+    console.log('현재 localStorage 데이터 개수:', localStorage.length)
+
+    // # sessionStorage : 브라우저를 끌 때까지 유지되는 데이터
+    sessionStorage.setItem("name", "홍길동") //add
+    sessionStorage.setItem("name", "이길동") //modify
+
+    sessionStorage.setItem("cookie", "chocolate") //add
+    sessionStorage.setItem("score", "900") //add
+
+    sessionStorage.removeItem("score") //remove
+
+    var name = sessionStorage.getItem("name") //read (키를 넣으면 value가 나옴)
+    console.log(name)
+    console.log('현재 sessionStorage 데이터 개수:', sessionStorage.length)
+</script>
+    
+</body>
+</html>
